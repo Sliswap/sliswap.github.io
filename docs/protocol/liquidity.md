@@ -23,9 +23,9 @@ nav_order: 3
 
 ### 1. Invariant
 
-```math
+$$
 (s x + y - c) x y = k
-```
+$$
 
 - Let `x` be the reserve of token0, `y` be the reserve of token1.
 - `s` and `c` are dynamic control parameters; `k` is the pool invariant.
@@ -36,15 +36,15 @@ Compared to the constant product market maker, the term `(s x + y - c)` introduc
 
 - Initialization:
 
-```math
+$$
 s_{0} = \frac{y}{x}
-```
+$$
 
 - Post-trade incremental update, proportional to trade size and nudging `s` toward the current price ratio `y/x`:
 
-```math
+$$
 s_{new} = s \times \Bigl(1 \pm \frac{5}{1000} \cdot \frac{\Delta x}{x_{before}}\Bigr)
-```
+$$
 
 Notes:
 - `\Delta x` is absolute (unsigned) input size in token0 units.
@@ -54,22 +54,22 @@ Notes:
 
 - Initialization:
 
-```math
+$$
 c_{0} = \frac{3}{4} \cdot y
-```
+$$
 
 - Liquidity changes: scale `c` proportionally with `lp_token_supply`.
 - After each swap (with `y` taken as the post-trade token1 balance):
 
-```math
+$$
 c_{new} = \Bigl(\bigl(\tfrac{3}{2} c - y\bigr) \cdot \frac{s_{new}}{s} + y\Bigr) \cdot \tfrac{2}{3}
-```
+$$
 
 Equivalent form:
 
-```math
+$$
 c_{new} = \tfrac{2}{3} y + c \cdot \frac{s_{new}}{s} - y \cdot \frac{s_{new}}{s} \cdot \tfrac{2}{3}
-```
+$$
 
 ### 4. Fees (total 0.30%)
 
@@ -83,27 +83,27 @@ Implementation tip:
 
 Given an input of token0 `amount_in`, define pre-trade reserves `(x, y)`. After deducting the input-side fee, let
 
-```math
+$$
 \Delta x_{eff} = amount\_in \cdot (1 - 0.0015)
-```
+$$
 
 Then the tentative post-trade reserves are `x' = x + \Delta x_{eff}`, `y' = y - amount_out_raw`. Enforce the invariant with current `(s, c)` to find `amount_out_raw`:
 
-```math
+$$
 f(y') = (s x' + y' - c) x' y' - k = 0
-```
+$$
 
 This is a quadratic in `y'` (since `x'` is known in this step). Select the economically valid root `0 < y' < y` and compute:
 
-```math
+$$
 amount\_out\_{raw} = y - y'
-```
+$$
 
 Finally apply the output-side fee:
 
-```math
+$$
 amount\_out = amount\_out\_{raw} \cdot (1 - 0.0015)
-```
+$$
 
 Edge handling:
 - If the quadratic yields no valid root in `(0, y)`, cap by available liquidity and revert with InsufficientLiquidity.
@@ -113,21 +113,21 @@ Edge handling:
 
 Let `x' = x + \Delta x_{eff}` and define `A = s x' - c`. The invariant becomes:
 
-```math
+$$
 (A + y') x' y' = k
-```
+$$
 
 which expands to a standard quadratic in `y'`:
 
-```math
+$$
 x' (y')^2 + A x' y' - k = 0
-```
+$$
 
 Solve with the quadratic formula and choose the root in `(0, y)`:
 
-```math
+$$
 y' = \frac{ -A x' + \sqrt{ (A x')^2 + 4 k x' } }{ 2 x' }
-```
+$$
 
 where `k = (s x + y - c) x y` from pre-trade reserves.
 
@@ -137,15 +137,15 @@ Once `amount_out` is finalized and reserves are updated to `(x', y')`, update pa
 
 1) Update `s` using `\Delta x = |amount_in|` and `x_before = x`:
 
-```math
+$$
 s_{new} = s \times \Bigl(1 \pm \frac{5}{1000} \cdot \frac{\Delta x}{x}\Bigr)
-```
+$$
 
 2) Update `c` using `y = y'` (post-trade):
 
-```math
+$$
 c_{new} = \Bigl(\bigl(\tfrac{3}{2} c - y'\bigr) \cdot \frac{s_{new}}{s} + y'\Bigr) \cdot \tfrac{2}{3}
-```
+$$
 
 On mint/burn liquidity, scale `c` proportionally to `lp_token_supply`.
 

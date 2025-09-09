@@ -30,15 +30,18 @@ public fun get_amounts_out(
     pools: vector<Object<LiquidityPool>>, from_token: Object<Metadata>, amount_in: u128
 ): (u128, u128)
 ```
-Description: Quotes final output and aggregated price impact for a multi-hop exact-in swap along `pools` in order.
+Description: Quotes final output and aggregated price impact for a multi-hop exact-in swap along `pools`.
 
-Parameters:
-- pools: route as a vector of pools, in hop order
-- from_token: metadata of the input token for the first hop
-- amount_in: exact input amount
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pools | `vector<Object<LiquidityPool>>` | Route pools in hop order |
+| from_token | `Object<Metadata>` | Input token of first hop |
+| amount_in | `u128` | Exact input amount |
 
-Returns:
-- (u128, u128): `(final_amount_out, price_impact_bps)`
+| Returns | Type | Description |
+|---------|------|-------------|
+| final_amount_out | `u128` | Final amount after all hops |
+| price_impact_bps | `u128` | Aggregated price impact (bps) |
 
 ### get_amounts_in
 ```
@@ -46,15 +49,18 @@ public fun get_amounts_in(
     pools: vector<Object<LiquidityPool>>, to_token: Object<Metadata>, amount_out: u128
 ): (u128, u128)
 ```
-Description: Quotes required total input and aggregated price impact for a multi-hop exact-out swap, walking `pools` in reverse.
+Description: Quotes required total input and aggregated price impact for a multi-hop exact-out swap.
 
-Parameters:
-- pools: route as a vector of pools, in hop order
-- to_token: metadata of the output token for the last hop
-- amount_out: exact desired final output
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pools | `vector<Object<LiquidityPool>>` | Route pools in hop order |
+| to_token | `Object<Metadata>` | Final output token |
+| amount_out | `u128` | Exact desired final output |
 
-Returns:
-- (u128, u128): `(required_amount_in, price_impact_bps)`
+| Returns | Type | Description |
+|---------|------|-------------|
+| required_amount_in | `u128` | Total input required across all hops |
+| price_impact_bps | `u128` | Aggregated price impact (bps) |
 
 ### quote_liquidity
 ```
@@ -190,15 +196,20 @@ public entry fun swap_entry(
     amount_out_min: u128, recipient: address
 )
 ```
-Description: Executes a single-hop exact-in swap on a pool and deposits to `recipient`.
+Description: Executes a single-hop exact-in swap and deposits output to `recipient`.
 
-Parameters:
-- user: swap initiator signer
-- pool: target pool
-- from_token: input token
-- amount_in: exact input amount
-- amount_out_min: minimum acceptable output
-- recipient: final receiver address
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| user | `&signer` | Swap initiator signer |
+| pool | `Object<LiquidityPool>` | Target pool |
+| from_token | `Object<Metadata>` | Input token metadata |
+| amount_in | `u128` | Exact input amount |
+| amount_out_min | `u128` | Minimum acceptable output |
+| recipient | `address` | Final receiver |
+
+| Returns | Type | Description |
+|---------|------|-------------|
+| (none) | - | Side effects: withdraw/deposit, emits events |
 
 ### swap
 ```
@@ -244,15 +255,20 @@ public entry fun swap_exact_out_entry(
     amount_in_max: u128, recipient: address
 )
 ```
-Description: Executes a single-hop exact-out swap on a pool with `amount_in_max` guard.
+Description: Executes a single-hop exact-out swap, ensuring input does not exceed `amount_in_max`.
 
-Parameters:
-- user: swap initiator signer
-- pool: target pool
-- to_token: desired output token
-- amount_out: exact desired output
-- amount_in_max: max input permitted
-- recipient: final receiver address
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| user | `&signer` | Swap initiator signer |
+| pool | `Object<LiquidityPool>` | Target pool |
+| to_token | `Object<Metadata>` | Desired output token |
+| amount_out | `u128` | Exact desired output |
+| amount_in_max | `u128` | Maximum input permitted |
+| recipient | `address` | Final receiver |
+
+| Returns | Type | Description |
+|---------|------|-------------|
+| (none) | - | Side effects: withdraw/deposit, emits events |
 
 ### swap_exact_out
 ```

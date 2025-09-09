@@ -51,12 +51,14 @@ public fun liquidity_pool(
 ```
 Description: Returns the pool object that manages swaps and LP tokens for the given token pair.
 
-Parameters:
-- token_0: metadata of the first token
-- token_1: metadata of the second token
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| token_0 | `Object<Metadata>` | First token metadata |
+| token_1 | `Object<Metadata>` | Second token metadata |
 
-Returns:
-- Object<LiquidityPool>: the pool object (also the LP token object id)
+| Returns | Type | Description |
+|---------|------|-------------|
+| pool | `Object<LiquidityPool>` | Pool object (also the LP token id) |
 
 ```
 #[view]
@@ -66,12 +68,14 @@ public fun liquidity_pool_address(
 ```
 Description: Computes the deterministic address for the pool of the given pair.
 
-Parameters:
-- token_0: metadata of the first token
-- token_1: metadata of the second token
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| token_0 | `Object<Metadata>` | First token metadata |
+| token_1 | `Object<Metadata>` | Second token metadata |
 
-Returns:
-- address: deterministic pool address (order-insensitive)
+| Returns | Type | Description |
+|---------|------|-------------|
+| address | `address` | Deterministic pool address (order-insensitive) |
 
 ```
 #[view]
@@ -251,13 +255,20 @@ public fun get_amount_out(
 ```
 Description: Calculates output amount and per-side fee breakdown for exact input.
 
-Parameters:
-- pool: pool object
-- token_in: input token metadata
-- amount_in: input amount
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pool | `Object<LiquidityPool>` | Target pool |
+| token_in | `Object<Metadata>` | Input token metadata |
+| amount_in | `u128` | Exact input amount |
 
-Returns:
-- (u128, u128, u128, u128, u128, u128): `(amount_out, token0_swap_fee, token0_dao_fee, token1_swap_fee, token1_dao_fee, price_impact_bps)`
+| Returns (tuple) | Type | Description |
+|-----------------|------|-------------|
+| amount_out | `u128` | Final output after output-side fees |
+| token0_swap_fee | `u128` | Swap fee charged on token0 leg |
+| token0_dao_fee | `u128` | DAO fee charged on token0 leg |
+| token1_swap_fee | `u128` | Swap fee charged on token1 leg |
+| token1_dao_fee | `u128` | DAO fee charged on token1 leg |
+| price_impact_bps | `u128` | Price impact in basis points for this hop |
 
 ```
 #[view]
@@ -267,13 +278,20 @@ public fun get_amount_in(
 ```
 Description: Calculates required input amount and per-side fee breakdown for exact output.
 
-Parameters:
-- pool: pool object
-- token_in: input token metadata (the token you will spend)
-- amount_out: desired output amount
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pool | `Object<LiquidityPool>` | Target pool |
+| token_in | `Object<Metadata>` | Input token metadata (the token you will spend) |
+| amount_out | `u128` | Exact desired output amount |
 
-Returns:
-- (u128, u128, u128, u128, u128, u128): `(amount_in, token0_swap_fee, token0_dao_fee, token1_swap_fee, token1_dao_fee, price_impact_bps)`
+| Returns (tuple) | Type | Description |
+|-----------------|------|-------------|
+| amount_in | `u128` | Required input including input-side fees |
+| token0_swap_fee | `u128` | Swap fee charged on token0 leg |
+| token0_dao_fee | `u128` | DAO fee charged on token0 leg |
+| token1_swap_fee | `u128` | Swap fee charged on token1 leg |
+| token1_dao_fee | `u128` | DAO fee charged on token1 leg |
+| price_impact_bps | `u128` | Price impact in basis points for this hop |
 
 Return tuple order for both functions:
 - `(amount, token0_swap_fee, token0_dao_fee, token1_swap_fee, token1_dao_fee, price_impact_bps)`
@@ -287,11 +305,12 @@ public entry fun transfer(
 ```
 Description: Transfers LP tokens; must be used instead of generic transfers to preserve accounting and events.
 
-Parameters:
-- from: LP token holder signer
-- lp_token: LP token object (the pool object)
-- to: recipient address
-- amount: LP tokens to transfer
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| from | `&signer` | LP token holder signer |
+| lp_token | `Object<LiquidityPool>` | LP token object (the pool object) |
+| to | `address` | Recipient address |
+| amount | `u128` | LP tokens to transfer |
 
 ## Events
 

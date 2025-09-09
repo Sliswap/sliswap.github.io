@@ -31,21 +31,21 @@ Application order during a swap of token0 -> token1:
 
 Mathematically:
 
-```math
+$$
 \text{Input-side fee} = amount\_in \cdot 0.0015
 \quad , \quad
 \Delta x_{eff} = amount\_in \cdot (1 - 0.0015)
-```
+$$
 
 Solve the invariant with `x' = x + \Delta x_{eff}` to get `y'`, then:
 
-```math
+$$
 amount\_out\_{raw} = y - y'
 \quad , \quad
 \text{Output-side fee} = amount\_out\_{raw} \cdot 0.0015
 \quad , \quad
 amount\_out = amount\_out\_{raw} \cdot (1 - 0.0015)
-```
+$$
 
 Distribution of the 0.30%:
 - Input leg 0.15% = swap_fee + dao_fee (protocol-tunable split)
