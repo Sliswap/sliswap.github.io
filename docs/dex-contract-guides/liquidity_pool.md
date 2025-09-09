@@ -43,7 +43,8 @@ struct PoolInfo {
 
 ### Addresses and metadata
 
-``` 
+#### liquidity_pool
+```
 #[view]
 public fun liquidity_pool(
     token_0: Object<Metadata>, token_1: Object<Metadata>
@@ -108,6 +109,7 @@ Description: Returns the two token metadata objects supported by the pool.
 
 ### Pool info and reserves
 
+#### pool_info_by_tokens
 ```
 #[view]
 public fun pool_info_by_tokens(
@@ -241,6 +243,7 @@ Description: Returns tokens and reserves plus decimals.
 
 ### Swap calculations
 
+#### get_amount_out
 ```
 #[view]
 public fun get_amount_out(
@@ -292,6 +295,7 @@ Return tuple order for both functions:
 
 ### Liquidity providers
 
+#### transfer
 ```
 public entry fun transfer(
     from: &signer, lp_token: Object<LiquidityPool>, to: address, amount: u128
