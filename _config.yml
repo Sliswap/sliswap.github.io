@@ -4,6 +4,9 @@ description: Endless DEX
 remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
+  - jekyll-optional-front-matter
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
 # Set your actual site URL and baseurl if this is a project page
 url: https://sliswap.github.io
 baseurl: /sliswap.github.io
@@ -89,6 +92,7 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: false
+  math_engine: mathjax
 
 compress_html:
   clippings: all
