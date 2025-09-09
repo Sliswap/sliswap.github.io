@@ -83,12 +83,14 @@ public fun is_sorted(token_0: Object<Metadata>, token_1: Object<Metadata>): bool
 ```
 Description: Checks if the tokens are in the canonical pool order.
 
-Parameters:
-- token_0: token metadata to check
-- token_1: token metadata to check
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| token_0 | `Object<Metadata>` | Token metadata to check |
+| token_1 | `Object<Metadata>` | Token metadata to check |
 
-Returns:
-- bool: true if `(token_0, token_1)` is the pool’s canonical ordering
+| Returns | Type | Description |
+|---------|------|-------------|
+| is_sorted | `bool` | True if `(token_0, token_1)` is canonical order |
 
 ```
 #[view]
@@ -96,11 +98,13 @@ public fun supported_inner_assets(pool: Object<LiquidityPool>): vector<Object<Me
 ```
 Description: Returns the two token metadata objects supported by the pool.
 
-Parameters:
-- pool: pool object
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pool | `Object<LiquidityPool>` | Pool object |
 
-Returns:
-- vector<Object<Metadata>>: `[token_0, token_1]`
+| Returns | Type | Description |
+|---------|------|-------------|
+| tokens | `vector<Object<Metadata>>` | `[token_0, token_1]` |
 
 ### Pool info and reserves
 
@@ -112,12 +116,14 @@ public fun pool_info_by_tokens(
 ```
 Description: Convenience view to fetch `PoolInfo` by passing the token pair.
 
-Parameters:
-- token_0: metadata of the first token
-- token_1: metadata of the second token
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| token_0 | `Object<Metadata>` | First token metadata |
+| token_1 | `Object<Metadata>` | Second token metadata |
 
-Returns:
-- PoolInfo: detailed pool snapshot (reserves, params, fees, LP info)
+| Returns | Type | Description |
+|---------|------|-------------|
+| info | `PoolInfo` | Snapshot (reserves, params, fees, LP info) |
 
 ```
 #[view]
@@ -125,11 +131,13 @@ public fun pool_info(pool: Object<LiquidityPool>): PoolInfo
 ```
 Description: Returns a detailed snapshot of the pool state.
 
-Parameters:
-- pool: pool object
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pool | `Object<LiquidityPool>` | Pool object |
 
-Returns:
-- PoolInfo: includes reserves, fee balances, `s`, `c`, fee bps, LP supply/decimals
+| Returns | Type | Description |
+|---------|------|-------------|
+| info | `PoolInfo` | Reserves, fee balances, `s`, `c`, fee bps, LP info |
 
 ```
 #[view]
@@ -137,11 +145,13 @@ public fun pools_info(pools: vector<Object<LiquidityPool>>): vector<PoolInfo>
 ```
 Description: Batch variant of `pool_info` for multiple pools.
 
-Parameters:
-- pools: list of pool objects
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pools | `vector<Object<LiquidityPool>>` | List of pool objects |
 
-Returns:
-- vector<PoolInfo>: one `PoolInfo` per pool, in the same order
+| Returns | Type | Description |
+|---------|------|-------------|
+| infos | `vector<PoolInfo>` | One `PoolInfo` per pool, same order |
 
 ```
 #[view]
@@ -149,11 +159,14 @@ public fun pool_reserves<T: key>(pool: Object<T>): (u128, u128)
 ```
 Description: Fetches the current on-chain token reserves.
 
-Parameters:
-- pool: pool or LP token object
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pool | `Object<T>` | Pool or LP token object |
 
-Returns:
-- (u128, u128): `(reserve_0, reserve_1)`
+| Returns | Type | Description |
+|---------|------|-------------|
+| reserve_0 | `u128` | Token0 reserve |
+| reserve_1 | `u128` | Token1 reserve |
 
 ```
 #[view]
@@ -161,11 +174,15 @@ public fun pool_params<T: key>(pool: Object<T>): (u128, u128, u128)
 ```
 Description: Fetches invariant parameters.
 
-Parameters:
-- pool: pool or LP token object
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pool | `Object<T>` | Pool or LP token object |
 
-Returns:
-- (u128, u128, u128): `(s_numerator, s_denominator, c)`
+| Returns | Type | Description |
+|---------|------|-------------|
+| s_numerator | `u128` | Numerator of `s` |
+| s_denominator | `u128` | Denominator of `s` |
+| c | `u128` | Offset parameter |
 
 ```
 #[view]
@@ -173,11 +190,13 @@ public fun lp_token_supply<T: key>(pool: Object<T>): u128
 ```
 Description: Returns the total supply of LP tokens for the pool.
 
-Parameters:
-- pool: pool or LP token object
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pool | `Object<T>` | Pool or LP token object |
 
-Returns:
-- u128: total LP supply
+| Returns | Type | Description |
+|---------|------|-------------|
+| supply | `u128` | Total LP supply |
 
 ```
 #[view]
@@ -185,8 +204,9 @@ public fun min_liquidity(): u128
 ```
 Description: Returns the minimum LP amount permanently locked on initial mint.
 
-Returns:
-- u128: constant minimum liquidity
+| Returns | Type | Description |
+|---------|------|-------------|
+| min_liquidity | `u128` | Constant minimum LP liquidity |
 
 ```
 #[view]
@@ -194,8 +214,9 @@ public fun all_pool_addresses(): vector<Object<LiquidityPool>>
 ```
 Description: Lists all existing pools.
 
-Returns:
-- vector<Object<LiquidityPool>>: all pool objects
+| Returns | Type | Description |
+|---------|------|-------------|
+| pools | `vector<Object<LiquidityPool>>` | All pool objects |
 
 ```
 #[view]
@@ -205,11 +226,18 @@ public fun pool_metadata(
 ```
 Description: Returns tokens and reserves plus decimals.
 
-Parameters:
-- pool: pool object
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pool | `Object<LiquidityPool>` | Pool object |
 
-Returns:
-- (Object<Metadata>, Object<Metadata>, u128, u128, u8, u8): `(token_0, token_1, reserve_0, reserve_1, decimals_0, decimals_1)`
+| Returns | Type | Description |
+|---------|------|-------------|
+| token_0 | `Object<Metadata>` | Token0 metadata |
+| token_1 | `Object<Metadata>` | Token1 metadata |
+| reserve_0 | `u128` | Token0 reserve |
+| reserve_1 | `u128` | Token1 reserve |
+| decimals_0 | `u8` | Token0 decimals |
+| decimals_1 | `u8` | Token1 decimals |
 
 ### Liquidity math helpers
 
@@ -221,14 +249,16 @@ public fun liquidity_out(
 ```
 Description: Quotes the amount of LP tokens minted for given token amounts.
 
-Parameters:
-- token_0: token0 metadata
-- token_1: token1 metadata
-- amount_0: desired token0 amount
-- amount_1: desired token1 amount
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| token_0 | `Object<Metadata>` | Token0 metadata |
+| token_1 | `Object<Metadata>` | Token1 metadata |
+| amount_0 | `u128` | Desired token0 amount |
+| amount_1 | `u128` | Desired token1 amount |
 
-Returns:
-- u128: LP tokens minted (net of initial lock if first mint)
+| Returns | Type | Description |
+|---------|------|-------------|
+| lp_tokens | `u128` | LP tokens minted (net of initial lock if first mint) |
 
 ```
 #[view]
@@ -238,12 +268,15 @@ public fun liquidity_amounts(
 ```
 Description: Quotes underlying token amounts redeemable for `lp_token_amount`.
 
-Parameters:
-- pool: pool object
-- lp_token_amount: LP tokens to redeem
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pool | `Object<LiquidityPool>` | Pool object |
+| lp_token_amount | `u128` | LP tokens to redeem |
 
-Returns:
-- (u128, u128): `(amount_0, amount_1)`
+| Returns | Type | Description |
+|---------|------|-------------|
+| amount_0 | `u128` | Amount of token0 |
+| amount_1 | `u128` | Amount of token1 |
 
 ### Swap calculations
 

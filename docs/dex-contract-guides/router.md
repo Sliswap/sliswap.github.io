@@ -17,12 +17,15 @@ public fun calc_pool_addr_and_is_exist(
 ```
 Description: Computes the deterministic pool address and whether the pool exists.
 
-Parameters:
-- token_0: first token metadata
-- token_1: second token metadata
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| token_0 | `Object<Metadata>` | First token metadata |
+| token_1 | `Object<Metadata>` | Second token metadata |
 
-Returns:
-- (address, bool): `(pool_address, is_exist)`
+| Returns | Type | Description |
+|---------|------|-------------|
+| pool_address | `address` | Deterministic pool address |
+| is_exist | `bool` | Whether the pool exists |
 
 ### get_amounts_out
 ```
@@ -70,26 +73,15 @@ public fun quote_liquidity(
 ```
 Description: Quotes the proportional amount of token1 needed for providing `amount_0` of token0, based on pool price.
 
-Parameters:
-- token_0: base token metadata
-- token_1: quote token metadata
-- amount_0: token0 amount
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| token_0 | `Object<Metadata>` | Base token metadata |
+| token_1 | `Object<Metadata>` | Quote token metadata |
+| amount_0 | `u128` | Token0 amount |
 
-Returns:
-- u128: required token1 amount
-
-### lp_token_balance
-```
-public fun lp_token_balance(pool: address, provider: address): u128
-```
-Description: Returns the LP token balance for a provider address in a pool.
-
-Parameters:
-- pool: pool address (also LP token id)
-- provider: LP holder address
-
-Returns:
-- u128: LP token balance
+| Returns | Type | Description |
+|---------|------|-------------|
+| amount_1 | `u128` | Required token1 amount |
 
 ### liquidity_amount_out
 ```
@@ -179,13 +171,15 @@ public fun swap_router(
 ```
 Description: Internal helper to route a multi-hop exact-in swap with a fungible asset, enforcing `amount_out_min`.
 
-Parameters:
-- pools: route pools in order
-- in: input fungible asset (already withdrawn)
-- amount_out_min: minimum acceptable output
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| pools | `vector<Object<LiquidityPool>>` | Route pools in order |
+| in | `FungibleAsset` | Input asset (already withdrawn) |
+| amount_out_min | `u128` | Minimum acceptable output |
 
-Returns:
-- FungibleAsset: final output asset
+| Returns | Type | Description |
+|---------|------|-------------|
+| out | `FungibleAsset` | Final output asset |
 
 ### swap_entry
 ```
@@ -297,11 +291,15 @@ public entry fun add_liquidity_entry(
 ```
 Description: Adds liquidity after computing optimal amounts. Mints LP tokens to the provider.
 
-Parameters:
-- lp: LP provider signer
-- token_0/token_1: pool tokens
-- amount_0/amount_1: desired amounts
-- amount_0_min/amount_1_min: slippage guards for deposits
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| lp | `&signer` | LP provider signer |
+| token_0 | `Object<Metadata>` | Pool token0 |
+| token_1 | `Object<Metadata>` | Pool token1 |
+| amount_0 | `u128` | Desired token0 amount |
+| amount_1 | `u128` | Desired token1 amount |
+| amount_0_min | `u128` | Minimum token0 to add |
+| amount_1_min | `u128` | Minimum token1 to add |
 
 ### remove_liquidity_entry
 ```
@@ -314,12 +312,15 @@ public entry fun remove_liquidity_entry(
 ```
 Description: Burns LP and withdraws underlying tokens to `recipient`, enforcing minimum amounts.
 
-Parameters:
-- lp: LP provider signer
-- token_0/token_1: pool tokens
-- liquidity: LP amount to burn
-- amount_0_min/amount_1_min: slippage guards for withdrawals
-- recipient: receiver address
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| lp | `&signer` | LP provider signer |
+| token_0 | `Object<Metadata>` | Pool token0 |
+| token_1 | `Object<Metadata>` | Pool token1 |
+| liquidity | `u128` | LP amount to burn |
+| amount_0_min | `u128` | Minimum token0 to receive |
+| amount_1_min | `u128` | Minimum token1 to receive |
+| recipient | `address` | Receiver address |
 
 ### lock_lp_token_in_black_hole
 ```
