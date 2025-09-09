@@ -6,7 +6,7 @@ nav_order: 4
 
 ## Manager-Based Governance Structure
 
-Thee governance system in EdenSwap implements a manager-based approach, where a designated manager address holds the authority to control critical protocol parameters. This centralized yet controlled governance model ensures efficient decision-making while maintaining protocol security. The manager can adjust key parameters such as the DAO fee rate, pool multipliers, and emergency controls. The system implements strict access controls and parameter constraints to prevent unauthorized modifications and ensure protocol stability.
+Thee governance system in Sliswap implements a manager-based approach, where a designated manager address holds the authority to control critical protocol parameters. This centralized yet controlled governance model ensures efficient decision-making while maintaining protocol security. The manager can adjust key parameters such as the DAO fee rate, pool multipliers, and emergency controls. The system implements strict access controls and parameter constraints to prevent unauthorized modifications and ensure protocol stability.
 
 ## Governance Implementation and Parameter Management
 
@@ -14,4 +14,4 @@ The governance implementation is built around the `LiquidityPoolConfigs` structu
 
 ## Security and Fee Management
 
-The governance system incorporates robust security measures, including parameter validation and emergency controls. The fee management system enables the collection and distribution of protocol fees to the designated recipient through the `claim_fees` function. All governance actions are tracked through event emissions, providing transparency and accountability. The system maintains a balance between efficient protocol management and security, with clear parameter constraints and access controls. This structure ensures that protocol updates are executed safely while maintaining the integrity of the EdenSwap ecosystem.
+The governance system incorporates robust security measures, including parameter validation and emergency controls. The fee management system enables the collection and distribution of protocol fees to the designated recipient through the `claim_fees` function. All governance actions are tracked through event emissions, providing transparency and accountability. The system maintains a balance between efficient protocol management and security, with clear parameter constraints and access controls. This structure ensures that protocol updates are executed safely while maintaining the integrity of the Sliswap ecosystem.
