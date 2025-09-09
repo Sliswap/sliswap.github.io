@@ -5,11 +5,11 @@ nav_order: 1
 permalink: /
 ---
 
-# SliSwap Protocol Overview
+# Sliswap Protocol Overview
 
 ## Concept and Innovation
 
-SliSwap is a next-generation decentralized exchange (DEX) built on the Endless blockchain, featuring an innovative adaptive invariant model that dynamically adjusts to market conditions. Unlike traditional constant product market makers (CPMM), SliSwap uses a sophisticated mathematical model that responds to trading patterns and liquidity flows.
+Sliswap is a next-generation decentralized exchange (DEX) built on the Endless blockchain, featuring an innovative adaptive invariant model that dynamically adjusts to market conditions. Unlike traditional constant product market makers (CPMM), Sliswap uses a sophisticated mathematical model that responds to trading patterns and liquidity flows.
 
 ### Key Innovations
 
@@ -27,7 +27,7 @@ SliSwap is a next-generation decentralized exchange (DEX) built on the Endless b
 
 ## Fee Structure and Economic Model
 
-SliSwap implements a dual-sided fee model totaling 0.30% per trade, strategically applied to both input and output legs for optimal economic efficiency.
+Sliswap implements a dual-sided fee model totaling 0.30% per trade, strategically applied to both input and output legs for optimal economic efficiency.
 
 ### Fee Breakdown
 - **Input Side (0.15%)**: Applied to `amount_in` before swap calculation
@@ -43,7 +43,7 @@ SliSwap implements a dual-sided fee model totaling 0.30% per trade, strategicall
 
 ## Trading and Liquidity Management
 
-SliSwap provides comprehensive trading and liquidity management tools with advanced routing capabilities and optimal liquidity provision.
+Sliswap provides comprehensive trading and liquidity management tools with advanced routing capabilities and optimal liquidity provision.
 
 ### Trading Features
 - **Single-Hop Swaps**: Direct token-to-token exchanges with minimal slippage
@@ -64,7 +64,7 @@ SliSwap provides comprehensive trading and liquidity management tools with advan
 
 ## Governance and Security
 
-SliSwap implements a robust governance and security framework designed for both efficiency and user protection.
+Sliswap implements a robust governance and security framework designed for both efficiency and user protection.
 
 ### Governance Structure
 - **Manager-Based System**: Designated managers control critical parameters

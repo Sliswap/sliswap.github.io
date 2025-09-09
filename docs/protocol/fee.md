@@ -19,7 +19,7 @@ nav_order: 5
 
 # Fee Mechanism 
 
-This document reflects the latest fee design in SliSwap and aligns with the new liquidity model `(s x + y - c) x y = k` and the README notes.
+This document reflects the latest fee design in Sliswap and aligns with the new liquidity model `(s x + y - c) x y = k` and the README notes.
 
 ## 1) Fee structure (total 0.30%)
 - 0.15% charged on `amount_in` (covers swap_fee + dao_fee)
