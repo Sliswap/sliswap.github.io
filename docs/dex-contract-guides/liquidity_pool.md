@@ -6,7 +6,7 @@ nav_order: 2
 
 # Liquidity Pool
 
-The Liquidity Pool contract is a core component of Sliswap that manages token pairs, liquidity provision, and swap operations. It implements a constant product formula (x * y = k) with virtual liquidity support.
+The Liquidity Pool contract is a core component of Sliswap that manages token pairs, liquidity provision, and swap operations. It implements an adaptive invariant `(s x + y - c) x y = k` with dynamic parameters `s` and `c`.
 
 ## Overview
 
@@ -238,45 +238,6 @@ Description: Returns tokens and reserves plus decimals.
 | reserve_1 | `u128` | Token1 reserve |
 | decimals_0 | `u8` | Token0 decimals |
 | decimals_1 | `u8` | Token1 decimals |
-
-### Liquidity math helpers
-
-```
-#[view]
-public fun liquidity_out(
-    token_0: Object<Metadata>, token_1: Object<Metadata>, amount_0: u128, amount_1: u128
-): u128
-```
-Description: Quotes the amount of LP tokens minted for given token amounts.
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| token_0 | `Object<Metadata>` | Token0 metadata |
-| token_1 | `Object<Metadata>` | Token1 metadata |
-| amount_0 | `u128` | Desired token0 amount |
-| amount_1 | `u128` | Desired token1 amount |
-
-| Returns | Type | Description |
-|---------|------|-------------|
-| lp_tokens | `u128` | LP tokens minted (net of initial lock if first mint) |
-
-```
-#[view]
-public fun liquidity_amounts(
-    pool: Object<LiquidityPool>, lp_token_amount: u128
-): (u128, u128)
-```
-Description: Quotes underlying token amounts redeemable for `lp_token_amount`.
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| pool | `Object<LiquidityPool>` | Pool object |
-| lp_token_amount | `u128` | LP tokens to redeem |
-
-| Returns | Type | Description |
-|---------|------|-------------|
-| amount_0 | `u128` | Amount of token0 |
-| amount_1 | `u128` | Amount of token1 |
 
 ### Swap calculations
 
