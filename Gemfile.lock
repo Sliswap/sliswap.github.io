@@ -1,19 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-
-PLATFORMS
-  ruby
-
-DEPENDENCIES
-  github-pages
-  jekyll-remote-theme
-
-BUNDLED WITH
-   2.5.9
-GEM
-  remote: https://rubygems.org/
-  specs:
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     base64 (0.2.0)

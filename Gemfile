@@ -1,10 +1,3 @@
-source "https://rubygems.org"
-
-# GitHub Pages bundle (pins Jekyll and supported plugins)
-gem "github-pages", group: :jekyll_plugins
-
-# Remote theme plugin (required for remote_theme)
-gem "jekyll-remote-theme", group: :jekyll_plugins
 source 'https://rubygems.org'
 
 gem "jekyll", "~> 4.4.1" # installed by `gem jekyll`
