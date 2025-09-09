@@ -1,2 +1,0 @@
-# sliswap.github.io
-docs
