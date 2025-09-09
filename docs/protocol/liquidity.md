@@ -19,18 +19,18 @@ nav_order: 3
 
 # Liquidity
 
-## Market Making and Fee Model (Updated)
+## Market Making and Fee Model
 
 ### 1. Invariant
 
 ```math
-(s x + y - c) \; x \; y = k
+(s x + y - c) x y = k
 ```
 
 - Let `x` be the reserve of token0, `y` be the reserve of token1.
 - `s` and `c` are dynamic control parameters; `k` is the pool invariant.
 
-Intuition: compared to the constant product market maker, the term `(s x + y - c)` introduces a price shape that adapts with recent order flow (`s`) and a shift term (`c`) that can be scaled with liquidity and nudged by trades.
+Compared to the constant product market maker, the term `(s x + y - c)` introduces a price shape that adapts with recent order flow (`s`) and a shift term (`c`) that can be scaled with liquidity and nudged by trades.
 
 ### 2. Updating the slope parameter s
 

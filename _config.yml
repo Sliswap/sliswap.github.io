@@ -1,7 +1,12 @@
 title: Sliswap
 description: Endless DEX
-theme: just-the-docs
-url: https://just-the-docs.github.io
+# Use remote theme for GitHub Pages compatibility
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+# Set your actual site URL and baseurl if this is a project page
+url: https://sliswap.github.io
+baseurl: /sliswap.github.io
 
 permalink: pretty
 
@@ -44,7 +49,7 @@ exclude:
   - fixtures/
 
 # Set a path/url to a logo that will be displayed instead of the title
-logo: "/assets/images/dex.svg"
+logo: "{{ '/assets/images/dex.svg' | relative_url }}"
 
 aux_links:
   Launch APP: https://dex-test.endless.link
