@@ -36,8 +36,29 @@ struct PoolInfo {
     dao_fee_bps: u128,
     lp_token_supply: u128,
     lp_token_decimals: u8,
+    lp_token_name: String,
 }
 ```
+
+#### Field Descriptions
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pool_addr` | `address` | Address of the liquidity pool contract |
+| `token_0` | `Object<Metadata>` | Metadata object for the first token |
+| `token_1` | `Object<Metadata>` | Metadata object for the second token |
+| `reserve_0` | `u128` | Current reserve amount of token0 in the pool |
+| `reserve_1` | `u128` | Current reserve amount of token1 in the pool |
+| `fee_0` | `u128` | Accumulated fees for token0 |
+| `fee_1` | `u128` | Accumulated fees for token1 |
+| `s_numerator` | `u128` | Numerator of the slope parameter s (s = s_numerator / s_denominator) |
+| `s_denominator` | `u128` | Denominator of the slope parameter s |
+| `c` | `u128` | Offset parameter c in the adaptive invariant |
+| `swap_fee_bps` | `u128` | Swap fee in basis points (1 bps = 0.01%) |
+| `dao_fee_bps` | `u128` | DAO fee in basis points |
+| `lp_token_supply` | `u128` | Total supply of LP tokens for this pool |
+| `lp_token_decimals` | `u8` | Number of decimal places for LP tokens (typically 8) |
+| `lp_token_name` | `String` | Human-readable name of the LP token |
 
 ## Read-Only Functions
 

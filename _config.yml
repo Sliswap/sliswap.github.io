@@ -47,7 +47,7 @@ exclude:
 logo: "/assets/images/dex.svg"
 
 aux_links:
-  Launch APP: https://dex-test.endless.link
+  Launch APP: https://test.sliswap.com/
 # Enable or disable the site search
 # Supports true (default) or false
 search_enabled: true
