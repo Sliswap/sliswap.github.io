@@ -55,7 +55,7 @@ Notes:
 - Initialization:
 
 $$
-c_{0} = \frac{3}{4} \cdot y
+c_{0} = \frac{4}{3} \cdot y
 $$
 
 - Liquidity changes: scale `c` proportionally with `lp_token_supply`.
@@ -69,6 +69,12 @@ Equivalent form:
 
 $$
 c_{new} = \tfrac{2}{3} y + c \cdot \frac{s_{new}}{s} - y \cdot \frac{s_{new}}{s} \cdot \tfrac{2}{3}
+$$
+
+If `c_{new} < 0`, then:
+
+$$
+c_{new} = (s_{new} \cdot x + y) \cdot \tfrac{2}{3}
 $$
 
 ### 4. Fees (total 0.30%)
@@ -176,6 +182,8 @@ y := y - amount_out
 // 6) update s and c
 s_new = s * (1 +/- 0.005 * (amount_in / x_before))
 c_new = (((3/2)*c - y) * (s_new/s) + y) * (2/3)
+if c_new < 0:
+    c_new = (s_new * x + y) * (2/3)
 ```
 
 ### 9. Parameter bounds and safety
@@ -186,11 +194,11 @@ c_new = (((3/2)*c - y) * (s_new/s) + y) * (2/3)
 
 ### 10. Worked example (illustrative)
 - Reserves: `x = 1,000`, `y = 2,000`
-- Params: `s = y/x = 2`, `c = 0.75*y = 1,500`
+- Params: `s = y/x = 2`, `c = (4/3)*y = 2,666.67`
 - Trade: `amount_in = 100`
-1) `k = (s x + y - c) x y = (2*1000 + 2000 - 1500)*1000*2000 = 1,500 * 2,000,000`
+1) `k = (s x + y - c) x y = (2*1000 + 2000 - 2666.67)*1000*2000 = 1,333.33 * 2,000,000`
 2) `dx_eff = 100 * (1 - 0.0015) = 99.85`, `x' = 1099.85`
-3) `A = s x' - c = 2*1099.85 - 1500 = 699.7`
+3) `A = s x' - c = 2*1099.85 - 2666.67 = -466.97`
 4) Solve `y'` via quadratic, then `amount_out_raw = y - y'`
 5) `amount_out = amount_out_raw * (1 - 0.0015)`
 

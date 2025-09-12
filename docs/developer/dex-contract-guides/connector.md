@@ -1,6 +1,6 @@
 ---
 title: Connector
-parent: Contract guides
+parent: DEX Contract Guides
 nav_order: 3
 ---
 

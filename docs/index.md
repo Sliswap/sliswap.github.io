@@ -100,10 +100,11 @@ Sliswap implements a robust governance and security framework designed for both 
 ## Getting Started
 
 For developers and integrators:
-- **Contract Guides**: Detailed interface documentation for all modules
-- **Protocol Specs**: Mathematical models and fee calculations
-- **Integration Examples**: Code samples for common use cases
-- **API Reference**: Complete function signatures and parameters
+- **[Developer Documentation](../developer/)**: Complete technical documentation
+  - **Contract Guides**: Detailed interface documentation for all modules
+  - **Protocol Specs**: Mathematical models and fee calculations
+  - **Integration Examples**: Code samples for common use cases
+  - **API Reference**: Complete function signatures and parameters
 
 
 ----

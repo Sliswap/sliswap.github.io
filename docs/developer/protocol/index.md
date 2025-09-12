@@ -1,5 +1,6 @@
 ---
 title: Protocol
+parent: Developer Documentation
 nav_order: 2
 ---
 

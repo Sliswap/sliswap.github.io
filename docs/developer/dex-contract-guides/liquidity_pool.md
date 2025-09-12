@@ -1,6 +1,6 @@
 ---
-title: Liquidity pool
-parent: Contract guides
+title: Liquidity Pool
+parent: DEX Contract Guides
 nav_order: 2
 ---
 

@@ -1,9 +1,10 @@
 ---
-title: Contract guides
+title: DEX Contract Guides
+parent: Developer Documentation
 nav_order: 3
 ---
 
-# Contract guides
+# DEX Contract Guides
 Guides to use endless dex contract
 {: .fs-6 .fw-300 }
 
