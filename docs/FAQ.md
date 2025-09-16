@@ -4,7 +4,7 @@ layout: default
 nav_order: 30
 ---
 
-**FAQ**
+# Frequently Asked Questions
 
 **What's the difference between Swap and a normal trade?**\
 Swap relies on liquidity pools (Liquidity Pool) instead of an order book, enabling faster exchanges. Normal trades typically depend on matching buy and sell orders.

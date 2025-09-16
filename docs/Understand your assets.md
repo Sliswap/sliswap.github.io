@@ -4,25 +4,25 @@ layout: default
 nav_order: 20
 ---
 
-**Understand your assets**
+# Understand Your Assets
 
 Stay on top of your asset status and adjust according to the market.
 
 Connect your Web3 wallet.
 
-![](images/Understand_your_assets/media/image1.png)
+![](/docs/images/Understand_your_assets/media/image1.png)
 
-Navigate to the \[Pool\] page.
+Navigate to the `Pool` page.
 
-![](images/Understand_your_assets/media/image2.png)
+![](/docs/images/Understand_your_assets/media/image2.png)
 
-Select the corresponding \[liquidity pool\].
+Select the corresponding `liquidity pool`.
 
-![](images/Understand_your_assets/media/image3.png)
+![](/docs/images/Understand_your_assets/media/image3.png)
 
-Locate the \[My position\] section on the page.
+Locate the `My position` section on the page.
 
-![](images/Understand_your_assets/media/image4.png)
+![](/docs/images/Understand_your_assets/media/image4.png)
 
 Check your assets:
 
@@ -33,4 +33,4 @@ Below, you can see the proportion of the two token prices in the liquidity and t
 
 **LP Token**: The amount of LP tokens held by your connected address.
 
-![](images/Understand_your_assets/media/image5.png)
+![](/docs/images/Understand_your_assets/media/image5.png)

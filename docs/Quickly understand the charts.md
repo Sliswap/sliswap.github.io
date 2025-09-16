@@ -4,7 +4,7 @@ layout: default
 nav_order: 21
 ---
 
-**Quickly understand the charts.**
+# Quickly Understand the Charts
 
 Understanding liquidity pool charts helps you quickly grasp market trends.
 
@@ -14,7 +14,7 @@ Logos and names of the two tokens
 
 Liquidity pool address
 
-![](images/Quickly_understand_the_charts/media/image1.png)
+![](/docs/images/Quickly_understand_the_charts/media/image1.png)
 
 Data Information
 
@@ -28,7 +28,7 @@ Data Information
 
 **24H Fee**: The total transaction fees earned by the liquidity pool in the past 24 hours.
 
-![](images/Quickly_understand_the_charts/media/image2.png)
+![](/docs/images/Quickly_understand_the_charts/media/image2.png)
 
 Chart Area
 
@@ -38,4 +38,4 @@ Chart Area
 
 The chart allows you to view the relative price of the two tokens, as well as the trend of the total trading volume.
 
-![](images/Quickly_understand_the_charts/media/image3.png)
+![](/docs/images/Quickly_understand_the_charts/media/image3.png)
