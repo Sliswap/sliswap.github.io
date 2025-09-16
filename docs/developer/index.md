@@ -1,6 +1,7 @@
 ---
 title: Developer
-nav_order: 29
+nav_order: 5
+has_children: true
 ---
 
 # Developer Documentation

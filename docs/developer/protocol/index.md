@@ -1,7 +1,8 @@
 ---
 title: Protocol
-parent: Developer Documentation
+parent: Developer
 nav_order: 2
+has_children: true
 ---
 
 # Protocol

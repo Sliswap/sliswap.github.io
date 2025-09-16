@@ -1,7 +1,8 @@
 ---
 title: DEX Contract Guides
-parent: Developer Documentation
+parent: Developer
 nav_order: 3
+has_children: true
 ---
 
 # DEX Contract Guides

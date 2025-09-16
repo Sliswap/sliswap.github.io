@@ -1,6 +1,6 @@
 ---
 title: Governance
-parent: Developer Documentation
+parent: Developer
 nav_order: 4
 ---
 # Governance
