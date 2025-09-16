@@ -71,10 +71,10 @@ $$
 c_{new} = \tfrac{2}{3} y + c \cdot \frac{s_{new}}{s} - y \cdot \frac{s_{new}}{s} \cdot \tfrac{2}{3}
 $$
 
-If `c_{new} < 0`, then:
+If `c_{new} < 0`, then set
 
 $$
-c_{new} = (s_{new} \cdot x + y) \cdot \tfrac{2}{3}
+c_{new} = 0
 $$
 
 ### 4. Fees (total 0.30%)
@@ -183,7 +183,7 @@ y := y - amount_out
 s_new = s * (1 +/- 0.005 * (amount_in / x_before))
 c_new = (((3/2)*c - y) * (s_new/s) + y) * (2/3)
 if c_new < 0:
-    c_new = (s_new * x + y) * (2/3)
+    c_new = 0
 ```
 
 ### 9. Parameter bounds and safety

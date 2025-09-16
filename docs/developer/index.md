@@ -1,5 +1,5 @@
 ---
-title: Developer Documentation
+title: Developer
 nav_order: 2
 ---
 
