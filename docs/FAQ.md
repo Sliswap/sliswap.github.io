@@ -20,7 +20,7 @@ Yes. Each Swap transaction incurs a small fee, typically including the platform 
 
 The protocol fee is charged by the platform's smart contract.
 
-The gas fee is charged by the blockchain network.
+The gas fee is charged by the blockchain network. 
 
 **What is a Network Fee?**\
 A **Gas Fee** is the transaction fee required to execute operations on a blockchain (such as Ethereum or the Endless chain). Its main purposes are:
