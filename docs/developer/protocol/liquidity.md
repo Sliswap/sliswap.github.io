@@ -71,6 +71,12 @@ $$
 c_{new} = \tfrac{2}{3} y + c \cdot \frac{s_{new}}{s} - y \cdot \frac{s_{new}}{s} \cdot \tfrac{2}{3}
 $$
 
+Then use Newton's method to solve for `c_newton` and assign it to `c` using the equation:
+
+$$
+9c^3 + 32sxy \cdot c - 32sxy(sx + y) = 0
+$$
+
 If `c_{new} < 0`, then set
 
 $$
@@ -186,13 +192,30 @@ if c_new < 0:
     c_new = 0
 ```
 
-### 9. Parameter bounds and safety
+### 9. Price Impact Calculation
+
+The current price impact calculation is as follows:
+
+- Price `p` = pool balance ratio `y/x`
+- Pre-trade price `p1`, post-trade price `p2`
+
+$$
+price\_impact = \frac{|p2 - p1|}{\max(p1, p2)}
+$$
+
+For multi-pool price impact:
+
+$$
+price\_impact_{total} = price\_impact_1 + price\_impact_2 - price\_impact_1 \times price\_impact_2
+$$
+
+### 10. Parameter bounds and safety
 - Clamp `s` to a reasonable range to avoid extreme curvature, e.g., `s_min > 0` and `s_max` based on historical volatility.
 - Ensure `c` remains non-negative and scales linearly with LP supply changes.
 - Validate inputs: `amount_in > 0`, reserves non-zero, and post-trade `y1` within `(0, y)`.
 - Use 256-bit integer math or fixed-point with rounding toward user safety on outputs.
 
-### 10. Worked example (illustrative)
+### 11. Worked example (illustrative)
 - Reserves: `x = 1,000`, `y = 2,000`
 - Params: `s = y/x = 2`, `c = (4/3)*y = 2,666.67`
 - Trade: `amount_in = 100`
