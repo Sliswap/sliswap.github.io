@@ -109,4 +109,4 @@ For developers and integrators:
 
 ----
 
-[Sliswap]: https://test.sliswap.com/
+[Sliswap]: https://www.sliswap.com/
