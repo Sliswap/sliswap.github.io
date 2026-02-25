@@ -37,7 +37,7 @@ $$
 \Delta x_{eff} = amount\_in \cdot (1 - 0.0015)
 $$
 
-Solve the invariant with `x' = x + \Delta x_{eff}` to get `y'`, then:
+Solve the invariant with $x' = x + \Delta x_{eff}$ to get $y'$, then:
 
 $$
 amount\_out\_{raw} = y - y'
@@ -54,12 +54,12 @@ Distribution of the 0.30%:
 
 ## 3) Implementation flow
 
-1. Compute `k = (s x + y - c) x y` from pre-trade reserves
-2. Apply input-side fee to get `\Delta x_{eff}`
-3. Set `x' = x + \Delta x_{eff}` and solve quadratic for `y'`
-4. `amount_out_raw = y - y'`
-5. Apply output-side fee: `amount_out = amount_out_raw * (1 - 0.0015)`
-6. Update reserves and then update `s` and `c` as defined in the liquidity spec
+1. Compute $k = (s x + y - c)\, x\, y$ from pre-trade reserves
+2. Apply input-side fee to get $\Delta x_{eff}$
+3. Set $x' = x + \Delta x_{eff}$ and solve quadratic for $y'$
+4. $amount\_out\_raw = y - y'$
+5. Apply output-side fee: $amount\_out = amount\_out\_raw \times (1 - 0.0015)$
+6. Update reserves and then update $s$ and $c$ as defined in the liquidity spec
 
 Notes:
 - Use consistent snapshots: `x_before = x` (pre-trade), `y` in `c_new` uses post-trade `y'`.
@@ -86,7 +86,7 @@ amount_out = amount_out_raw - out_fee
 - Fees should be accounted explicitly to designated recipients (e.g., treasury, LP incentives, staking contracts).
 
 ## 6) Edge cases and safety
-- Reject trades that lead to invalid roots or `y' \notin (0, y)`.
+- Reject trades that lead to invalid roots or $y' \notin (0, y)$.
 - Enforce minimum output after fees to respect slippage protection.
 - Cap `amount_in` to avoid overflow and extremely large curvature changes.
 - Use basis points (bps) for configuration; 1 bps = 0.01%.
