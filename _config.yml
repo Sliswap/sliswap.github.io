@@ -42,6 +42,7 @@ exclude:
   - Dockerfile
   # theme test code
   - fixtures/
+  - docsbk/
 
 # Set a path/url to a logo that will be displayed instead of the title
 logo: "/assets/images/dex.svg"
@@ -94,3 +95,4 @@ compress_html:
   profile: false
   # ignore:
   #   envs: all
+
